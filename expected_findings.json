@@ -1,0 +1,468 @@
+{
+  "expected_minimum_findings": [
+    {
+      "rule_id": "MOOLE_CR_AWS_233",
+      "rule_file": "acm_cert_create_before_destroy.py",
+      "resource": "module.bad_acm_cert_create_before_destroy.aws_acm_certificate.test",
+      "file": "modules/bad_acm_cert_create_before_destroy/main.tf",
+      "expected": "FAILED",
+      "reason": "Explicit replacement order controls create before destroy."
+    },
+    {
+      "rule_id": "MOOLE_CR_AWS_131",
+      "rule_file": "alb_drop_http_headers.py",
+      "resource": "module.bad_alb_drop_http_headers.aws_lb.test",
+      "file": "modules/bad_alb_drop_http_headers/main.tf",
+      "expected": "FAILED",
+      "reason": "Either protective desync mode or dropping invalid headers satisfies the curated rule."
+    },
+    {
+      "rule_id": "MOOLE_CR_AWS_2",
+      "rule_file": "alb_listener_https.py",
+      "resource": "module.bad_alb_listener_https.aws_lb_listener.test",
+      "file": "modules/bad_alb_listener_https/main.tf",
+      "expected": "FAILED",
+      "reason": "HTTPS listeners and unconditional HTTPS redirects pass; HTTP forwarding fails."
+    },
+    {
+      "rule_id": "MOOLE_CR_AWS_204",
+      "rule_file": "ami_encryption.py",
+      "resource": "module.bad_ami_encryption.aws_ami.test",
+      "file": "modules/bad_ami_encryption/main.tf",
+      "expected": "FAILED",
+      "reason": "The AMI references a snapshot of known unencrypted storage."
+    },
+    {
+      "rule_id": "MOOLE_CR_AWS_205",
+      "rule_file": "ami_launch_is_shared.py",
+      "resource": "module.bad_ami_launch_is_shared.aws_ami_launch_permission.test",
+      "file": "modules/bad_ami_launch_is_shared/main.tf",
+      "expected": "FAILED",
+      "reason": "Public launch permission fails; a fixed account or organization is scoped."
+    },
+    {
+      "rule_id": "MOOLE_CR_AWS_217",
+      "rule_file": "api_gateway_deployment_create_before_destroy.py",
+      "resource": "module.bad_api_gateway_deployment_create_before_destroy.aws_api_gateway_deployment.test",
+      "file": "modules/bad_api_gateway_deployment_create_before_destroy/main.tf",
+      "expected": "FAILED",
+      "reason": "Explicit replacement order controls create before destroy."
+    },
+    {
+      "rule_id": "MOOLE_CR_AWS_206",
+      "rule_file": "api_gateway_domain_name_tls.py",
+      "resource": "module.bad_api_gateway_domain_name_tls.aws_api_gateway_domain_name.test",
+      "file": "modules/bad_api_gateway_domain_name_tls/main.tf",
+      "expected": "FAILED",
+      "reason": "security_policy is explicitly \"TLS_1_0\"."
+    },
+    {
+      "rule_id": "MOOLE_CR_AWS_276",
+      "rule_file": "api_gateway_method_settings_data_trace.py",
+      "resource": "module.bad_api_gateway_method_settings_data_trace.aws_api_gateway_method_settings.test",
+      "file": "modules/bad_api_gateway_method_settings_data_trace/main.tf",
+      "expected": "FAILED",
+      "reason": "Explicit data tracing is evaluated independently of ordinary INFO execution logging."
+    },
+    {
+      "rule_id": "MOOLE_CR_AWS_193",
+      "rule_file": "app_sync_logging.py",
+      "resource": "module.bad_app_sync_logging.aws_appsync_graphql_api.test",
+      "file": "modules/bad_app_sync_logging/main.tf",
+      "expected": "FAILED",
+      "reason": "Logging configuration is required, but field-level logging is not separately required."
+    },
+    {
+      "rule_id": "MOOLE_CR_AWS_210",
+      "rule_file": "batch_job_is_not_privileged.py",
+      "resource": "module.bad_batch_job_is_not_privileged.aws_batch_job_definition.test",
+      "file": "modules/bad_batch_job_is_not_privileged/main.tf",
+      "expected": "FAILED",
+      "reason": "Privileged container mode fails; explicitly unprivileged containers pass."
+    },
+    {
+      "rule_id": "MOOLE_CR_AWS_174",
+      "rule_file": "cloudfront_tls_12.py",
+      "resource": "module.bad_cloudfront_tls_12.aws_cloudfront_distribution.test",
+      "file": "modules/bad_cloudfront_tls_12/main.tf",
+      "expected": "FAILED",
+      "reason": "Evaluate effective viewer TLS policy, including the default-certificate behavior."
+    },
+    {
+      "rule_id": "MOOLE_CR_AWS_220",
+      "rule_file": "cloudsearch_domain_enforce_https.py",
+      "resource": "module.bad_cloudsearch_domain_enforce_https.aws_cloudsearch_domain.test",
+      "file": "modules/bad_cloudsearch_domain_enforce_https/main.tf",
+      "expected": "FAILED",
+      "reason": "The endpoint setting explicitly selects the insecure or secure option."
+    },
+    {
+      "rule_id": "MOOLE_CR_AWS_218",
+      "rule_file": "cloudsearch_domain_tls.py",
+      "resource": "module.bad_cloudsearch_domain_tls.aws_cloudsearch_domain.test",
+      "file": "modules/bad_cloudsearch_domain_tls/main.tf",
+      "expected": "FAILED",
+      "reason": "The endpoint setting explicitly selects the insecure or secure option."
+    },
+    {
+      "rule_id": "MOOLE_CR_AWS_239",
+      "rule_file": "dax_endpoint_tls.py",
+      "resource": "module.bad_dax_endpoint_tls.aws_dax_cluster.test",
+      "file": "modules/bad_dax_endpoint_tls/main.tf",
+      "expected": "FAILED",
+      "reason": "cluster_endpoint_encryption_type is explicitly \"NONE\"."
+    },
+    {
+      "rule_id": "MOOLE_CR_AWS_133",
+      "rule_file": "db_instance_backup_retention_period.py",
+      "resource": "module.bad_db_instance_backup_retention_period.aws_db_instance.test",
+      "file": "modules/bad_db_instance_backup_retention_period/main.tf",
+      "expected": "FAILED",
+      "reason": "backup_retention_period is explicitly 0."
+    },
+    {
+      "rule_id": "MOOLE_CR_AWS_104",
+      "rule_file": "doc_db_audit_logs.py",
+      "resource": "module.bad_doc_db_audit_logs.aws_docdb_cluster_parameter_group.test",
+      "file": "modules/bad_doc_db_audit_logs/main.tf",
+      "expected": "FAILED",
+      "reason": "Any recognized nonempty audit mode satisfies the curated audit recommendation."
+    },
+    {
+      "rule_id": "MOOLE_CR_AWS_106",
+      "rule_file": "ebs_default_encryption.py",
+      "resource": "module.bad_ebs_default_encryption.aws_ebs_encryption_by_default.test",
+      "file": "modules/bad_ebs_default_encryption/main.tf",
+      "expected": "FAILED",
+      "reason": "enabled is explicitly false."
+    },
+    {
+      "rule_id": "MOOLE_CR_AWS_223",
+      "rule_file": "ecs_cluster_logging_enabled.py",
+      "resource": "module.bad_ecs_cluster_logging_enabled.aws_ecs_cluster.test",
+      "file": "modules/bad_ecs_cluster_logging_enabled/main.tf",
+      "expected": "FAILED",
+      "reason": "A related service enables ECS Exec but the cluster selects NONE logging."
+    },
+    {
+      "rule_id": "MOOLE_CR_AWS_100",
+      "rule_file": "eks_node_group_remote_access.py",
+      "resource": "module.bad_eks_node_group_remote_access.aws_eks_node_group.test",
+      "file": "modules/bad_eks_node_group_remote_access/main.tf",
+      "expected": "FAILED",
+      "reason": "An SSH key without source groups causes implicit unrestricted SSH access."
+    },
+    {
+      "rule_id": "MOOLE_CR_AWS_228",
+      "rule_file": "elasticsearch_tls_policy.py",
+      "resource": "module.bad_elasticsearch_tls_policy.aws_elasticsearch_domain.test",
+      "file": "modules/bad_elasticsearch_tls_policy/main.tf",
+      "expected": "FAILED",
+      "reason": "The endpoint setting explicitly selects the insecure or secure option."
+    },
+    {
+      "rule_id": "MOOLE_CR_AWS_138",
+      "rule_file": "elb_cross_zone_enable.py",
+      "resource": "module.bad_elb_cross_zone_enable.aws_elb.test",
+      "file": "modules/bad_elb_cross_zone_enable/main.tf",
+      "expected": "FAILED",
+      "reason": "cross_zone_load_balancing is explicitly false."
+    },
+    {
+      "rule_id": "MOOLE_CR_AWS_213",
+      "rule_file": "elb_policy_uses_secure_protocols.py",
+      "resource": "module.bad_elb_policy_uses_secure_protocols.aws_load_balancer_policy.test",
+      "file": "modules/bad_elb_policy_uses_secure_protocols/main.tf",
+      "expected": "FAILED",
+      "reason": "The selected Classic ELB policy either permits old TLS or requires TLS 1.2."
+    },
+    {
+      "rule_id": "MOOLE_CR_AWS_114",
+      "rule_file": "emr_cluster_kerberos_attributes.py",
+      "resource": "module.bad_emr_cluster_kerberos_attributes.aws_emr_cluster.test",
+      "file": "modules/bad_emr_cluster_kerberos_attributes/main.tf",
+      "expected": "FAILED",
+      "reason": "Kerberos needs a nonblank realm; no Kerberos block is outside this recommendation."
+    },
+    {
+      "rule_id": "MOOLE_CR_AWS_167",
+      "rule_file": "glacier_vault_any_principal.py",
+      "resource": "module.bad_glacier_vault_any_principal.aws_glacier_vault.test",
+      "file": "modules/bad_glacier_vault_any_principal/main.tf",
+      "expected": "FAILED",
+      "reason": "Wildcard allow without a restricting condition is public."
+    },
+    {
+      "rule_id": "MOOLE_CR_AWS_238",
+      "rule_file": "guardduty_detector_enabled.py",
+      "resource": "module.bad_guardduty_detector_enabled.aws_guardduty_detector.test",
+      "file": "modules/bad_guardduty_detector_enabled/main.tf",
+      "expected": "FAILED",
+      "reason": "enable is explicitly false."
+    },
+    {
+      "rule_id": "MOOLE_CR_AWS_283",
+      "rule_file": "iam_public_actions_policy.py",
+      "resource": "module.bad_iam_public_actions_policy.data.aws_iam_policy_document.test",
+      "file": "modules/bad_iam_public_actions_policy/main.tf",
+      "expected": "FAILED",
+      "reason": "HTTPS is transport protection; it does not narrow a wildcard principal."
+    },
+    {
+      "rule_id": "MOOLE_CR_AWS_199",
+      "rule_file": "imagebuilder_distribution_configuration_encrypted.py",
+      "resource": "module.bad_imagebuilder_distribution_configuration_encrypted.aws_imagebuilder_distribution_configuration.test",
+      "file": "modules/bad_imagebuilder_distribution_configuration_encrypted/main.tf",
+      "expected": "FAILED",
+      "reason": "Source storage is unencrypted and destination regional encryption is explicitly disabled."
+    },
+    {
+      "rule_id": "MOOLE_CR_AWS_200",
+      "rule_file": "imagebuilder_image_recipe_ebs_encrypted.py",
+      "resource": "module.bad_imagebuilder_image_recipe_ebs_encrypted.aws_imagebuilder_image_recipe.test",
+      "file": "modules/bad_imagebuilder_image_recipe_ebs_encrypted/main.tf",
+      "expected": "FAILED",
+      "reason": "A new disk is unencrypted even though other inherited storage is encrypted."
+    },
+    {
+      "rule_id": "MOOLE_CR_AWS_116",
+      "rule_file": "lambda_dlq_configured.py",
+      "resource": "module.bad_lambda_dlq_configured.aws_lambda_function.test",
+      "file": "modules/bad_lambda_dlq_configured/main.tf",
+      "expected": "FAILED",
+      "reason": "An applicable asynchronous invocation needs a DLQ or an OnFailure destination."
+    },
+    {
+      "rule_id": "MOOLE_CR_AWS_258",
+      "rule_file": "lambda_function_url_auth.py",
+      "resource": "module.bad_lambda_function_url_auth.aws_lambda_function_url.test",
+      "file": "modules/bad_lambda_function_url_auth/main.tf",
+      "expected": "FAILED",
+      "reason": "authorization_type is explicitly \"NONE\"."
+    },
+    {
+      "rule_id": "MOOLE_CR_AWS_197",
+      "rule_file": "mq_broker_audit_logging.py",
+      "resource": "module.bad_mq_broker_audit_logging.aws_mq_broker.test",
+      "file": "modules/bad_mq_broker_audit_logging/main.tf",
+      "expected": "FAILED",
+      "reason": "Audit logging is checked for ActiveMQ; RabbitMQ is outside this audit setting."
+    },
+    {
+      "rule_id": "MOOLE_CR_AWS_242",
+      "rule_file": "mwaa_scheduler_logs_enabled.py",
+      "resource": "module.bad_mwaa_scheduler_logs_enabled.aws_mwaa_environment.test",
+      "file": "modules/bad_mwaa_scheduler_logs_enabled/main.tf",
+      "expected": "FAILED",
+      "reason": "Evaluate the selected MWAA log type independently."
+    },
+    {
+      "rule_id": "MOOLE_CR_AWS_244",
+      "rule_file": "mwaa_webserver_logs_enabled.py",
+      "resource": "module.bad_mwaa_webserver_logs_enabled.aws_mwaa_environment.test",
+      "file": "modules/bad_mwaa_webserver_logs_enabled/main.tf",
+      "expected": "FAILED",
+      "reason": "Evaluate the selected MWAA log type independently."
+    },
+    {
+      "rule_id": "MOOLE_CR_AWS_243",
+      "rule_file": "mwaa_worker_logs_enabled.py",
+      "resource": "module.bad_mwaa_worker_logs_enabled.aws_mwaa_environment.test",
+      "file": "modules/bad_mwaa_worker_logs_enabled/main.tf",
+      "expected": "FAILED",
+      "reason": "Evaluate the selected MWAA log type independently."
+    },
+    {
+      "rule_id": "MOOLE_CR_AWS_102",
+      "rule_file": "neptune_cluster_instance_public.py",
+      "resource": "module.bad_neptune_cluster_instance_public.aws_neptune_cluster_instance.test",
+      "file": "modules/bad_neptune_cluster_instance_public/main.tf",
+      "expected": "FAILED",
+      "reason": "Curated logic combines the public flag with SG access to the database port."
+    },
+    {
+      "rule_id": "MOOLE_CR_AWS_101",
+      "rule_file": "neptune_cluster_logging.py",
+      "resource": "module.bad_neptune_cluster_logging.aws_neptune_cluster.test",
+      "file": "modules/bad_neptune_cluster_logging/main.tf",
+      "expected": "FAILED",
+      "reason": "Export configuration does not compensate for disabled audit generation."
+    },
+    {
+      "rule_id": "MOOLE_CR_AWS_230",
+      "rule_file": "network_acl_unrestricted_ingress_20.py",
+      "resource": "module.bad_network_acl_unrestricted_ingress_20.aws_network_acl.test",
+      "file": "modules/bad_network_acl_unrestricted_ingress_20/main.tf",
+      "expected": "FAILED",
+      "reason": "An earlier matching NACL deny takes precedence over a later allow."
+    },
+    {
+      "rule_id": "MOOLE_CR_AWS_229",
+      "rule_file": "network_acl_unrestricted_ingress_21.py",
+      "resource": "module.bad_network_acl_unrestricted_ingress_21.aws_network_acl.test",
+      "file": "modules/bad_network_acl_unrestricted_ingress_21/main.tf",
+      "expected": "FAILED",
+      "reason": "An earlier matching NACL deny takes precedence over a later allow."
+    },
+    {
+      "rule_id": "MOOLE_CR_AWS_232",
+      "rule_file": "network_acl_unrestricted_ingress_22.py",
+      "resource": "module.bad_network_acl_unrestricted_ingress_22.aws_network_acl.test",
+      "file": "modules/bad_network_acl_unrestricted_ingress_22/main.tf",
+      "expected": "FAILED",
+      "reason": "An earlier matching NACL deny takes precedence over a later allow."
+    },
+    {
+      "rule_id": "MOOLE_CR_AWS_231",
+      "rule_file": "network_acl_unrestricted_ingress_3389.py",
+      "resource": "module.bad_network_acl_unrestricted_ingress_3389.aws_network_acl.test",
+      "file": "modules/bad_network_acl_unrestricted_ingress_3389/main.tf",
+      "expected": "FAILED",
+      "reason": "An earlier matching NACL deny takes precedence over a later allow."
+    },
+    {
+      "rule_id": "MOOLE_CR_AWS_10",
+      "rule_file": "password_policy_length.py",
+      "resource": "module.bad_password_policy_length.aws_iam_account_password_policy.test",
+      "file": "modules/bad_password_policy_length/main.tf",
+      "expected": "FAILED",
+      "reason": "minimum_password_length is explicitly 7."
+    },
+    {
+      "rule_id": "MOOLE_CR_AWS_13",
+      "rule_file": "password_policy_reuse.py",
+      "resource": "module.bad_password_policy_reuse.aws_iam_account_password_policy.test",
+      "file": "modules/bad_password_policy_reuse/main.tf",
+      "expected": "FAILED",
+      "reason": "password_reuse_prevention is explicitly 11."
+    },
+    {
+      "rule_id": "MOOLE_CR_AWS_16",
+      "rule_file": "rds_encryption.py",
+      "resource": "module.bad_rds_encryption.aws_db_instance.test",
+      "file": "modules/bad_rds_encryption/main.tf",
+      "expected": "FAILED",
+      "reason": "storage_encrypted is explicitly false."
+    },
+    {
+      "rule_id": "MOOLE_CR_AWS_105",
+      "rule_file": "red_shift_ssl.py",
+      "resource": "module.bad_red_shift_ssl.aws_redshift_parameter_group.test",
+      "file": "modules/bad_red_shift_ssl/main.tf",
+      "expected": "FAILED",
+      "reason": "Explicit SSL false fails; the curated redshift-2.0 default passes."
+    },
+    {
+      "rule_id": "MOOLE_CR_AWS_122",
+      "rule_file": "sage_maker_internet_access_disabled.py",
+      "resource": "module.bad_sage_maker_internet_access_disabled.aws_sagemaker_notebook_instance.test",
+      "file": "modules/bad_sage_maker_internet_access_disabled/main.tf",
+      "expected": "FAILED",
+      "reason": "direct_internet_access is explicitly \"Enabled\"."
+    },
+    {
+      "rule_id": "MOOLE_CR_AWS_230_FTP",
+      "rule_file": "security_group_unrestricted_ingress_20.py",
+      "resource": "module.bad_security_group_unrestricted_ingress_20.aws_security_group.test",
+      "file": "modules/bad_security_group_unrestricted_ingress_20/main.tf",
+      "expected": "FAILED",
+      "reason": "Evaluate unrestricted TCP ingress, including CIDRs whose union covers the Internet."
+    },
+    {
+      "rule_id": "MOOLE_CR_AWS_229_ActiveFTP",
+      "rule_file": "security_group_unrestricted_ingress_21.py",
+      "resource": "module.bad_security_group_unrestricted_ingress_21.aws_security_group.test",
+      "file": "modules/bad_security_group_unrestricted_ingress_21/main.tf",
+      "expected": "FAILED",
+      "reason": "Evaluate unrestricted TCP ingress, including CIDRs whose union covers the Internet."
+    },
+    {
+      "rule_id": "MOOLE_CR_AWS_24",
+      "rule_file": "security_group_unrestricted_ingress_22.py",
+      "resource": "module.bad_security_group_unrestricted_ingress_22.aws_security_group.test",
+      "file": "modules/bad_security_group_unrestricted_ingress_22/main.tf",
+      "expected": "FAILED",
+      "reason": "Evaluate unrestricted TCP ingress, including CIDRs whose union covers the Internet."
+    },
+    {
+      "rule_id": "MOOLE_CR_AWS_25",
+      "rule_file": "security_group_unrestricted_ingress_3389.py",
+      "resource": "module.bad_security_group_unrestricted_ingress_3389.aws_security_group.test",
+      "file": "modules/bad_security_group_unrestricted_ingress_3389/main.tf",
+      "expected": "FAILED",
+      "reason": "Evaluate unrestricted TCP ingress, including CIDRs whose union covers the Internet."
+    },
+    {
+      "rule_id": "MOOLE_CR_AWS_277",
+      "rule_file": "security_group_unrestricted_ingress_any.py",
+      "resource": "module.bad_security_group_unrestricted_ingress_any.aws_security_group.test",
+      "file": "modules/bad_security_group_unrestricted_ingress_any/main.tf",
+      "expected": "FAILED",
+      "reason": "The curated rule's declared scope includes all protocols or every TCP/UDP port; a single port is outside this check."
+    },
+    {
+      "rule_id": "MOOLE_CR_AWS_169",
+      "rule_file": "sns_topic_policy_any_principal.py",
+      "resource": "module.bad_sns_topic_policy_any_principal.aws_sns_topic.test",
+      "file": "modules/bad_sns_topic_policy_any_principal/main.tf",
+      "expected": "FAILED",
+      "reason": "Wildcard allow without a restricting condition is public."
+    },
+    {
+      "rule_id": "MOOLE_CR_AWS_168",
+      "rule_file": "sqs_queue_policy_any_principal.py",
+      "resource": "module.bad_sqs_queue_policy_any_principal.aws_sqs_queue.test",
+      "file": "modules/bad_sqs_queue_policy_any_principal/main.tf",
+      "expected": "FAILED",
+      "reason": "Wildcard allow without a restricting condition is public."
+    },
+    {
+      "rule_id": "MOOLE_CR_AWS_113",
+      "rule_file": "ssm_session_manager_document_logging.py",
+      "resource": "module.bad_ssm_session_manager_document_logging.aws_ssm_document.test",
+      "file": "modules/bad_ssm_session_manager_document_logging/main.tf",
+      "expected": "FAILED",
+      "reason": "A known log destination passes using service-default encryption; no destination fails."
+    },
+    {
+      "rule_id": "MOOLE_CR_AWS_130",
+      "rule_file": "subnet_public_ip.py",
+      "resource": "module.bad_subnet_public_ip.aws_subnet.test",
+      "file": "modules/bad_subnet_public_ip/main.tf",
+      "expected": "FAILED",
+      "reason": "map_public_ip_on_launch is explicitly true."
+    },
+    {
+      "rule_id": "MOOLE_CR_AWS_164",
+      "rule_file": "transfer_server_is_public.py",
+      "resource": "module.bad_transfer_server_is_public.aws_transfer_server.test",
+      "file": "modules/bad_transfer_server_is_public/main.tf",
+      "expected": "FAILED",
+      "reason": "An Internet-facing VPC endpoint allows unrestricted ingress on the transfer port."
+    },
+    {
+      "rule_id": "MOOLE_CR_AWS_123",
+      "rule_file": "vpc_endpoint_acceptance_configured.py",
+      "resource": "module.bad_vpc_endpoint_acceptance_configured.aws_vpc_endpoint_service.test",
+      "file": "modules/bad_vpc_endpoint_acceptance_configured/main.tf",
+      "expected": "FAILED",
+      "reason": "Automatic acceptance is acceptable only with explicitly scoped principals."
+    },
+    {
+      "rule_id": "MOOLE_CR_AWS_156",
+      "rule_file": "workspace_root_volume_encrypted.py",
+      "resource": "module.bad_workspace_root_volume_encrypted.aws_workspaces_workspace.test",
+      "file": "modules/bad_workspace_root_volume_encrypted/main.tf",
+      "expected": "FAILED",
+      "reason": "root_volume_encryption_enabled is explicitly false."
+    },
+    {
+      "rule_id": "MOOLE_CR_AWS_155",
+      "rule_file": "workspace_user_volume_encrypted.py",
+      "resource": "module.bad_workspace_user_volume_encrypted.aws_workspaces_workspace.test",
+      "file": "modules/bad_workspace_user_volume_encrypted/main.tf",
+      "expected": "FAILED",
+      "reason": "user_volume_encryption_enabled is explicitly false."
+    }
+  ]
+}

@@ -1,0 +1,598 @@
+{
+  "summary": {
+    "checkov_version": "3.3.20",
+    "single_scan": true,
+    "expected_minimum_findings": 58,
+    "expected_findings_found": 55,
+    "total_failed_findings": 81,
+    "total_passed_evaluations": 42,
+    "parsing_errors": 0,
+    "exit_code": 1,
+    "rules_unchanged": true
+  },
+  "expected_findings": [
+    {
+      "rule_id": "MOOLE_CR_AWS_233",
+      "rule_file": "acm_cert_create_before_destroy.py",
+      "resource": "module.bad_acm_cert_create_before_destroy.aws_acm_certificate.test",
+      "file": "modules/bad_acm_cert_create_before_destroy/main.tf",
+      "expected": "FAILED",
+      "reason": "Explicit replacement order controls create before destroy.",
+      "found": true
+    },
+    {
+      "rule_id": "MOOLE_CR_AWS_131",
+      "rule_file": "alb_drop_http_headers.py",
+      "resource": "module.bad_alb_drop_http_headers.aws_lb.test",
+      "file": "modules/bad_alb_drop_http_headers/main.tf",
+      "expected": "FAILED",
+      "reason": "Either protective desync mode or dropping invalid headers satisfies the curated rule.",
+      "found": true
+    },
+    {
+      "rule_id": "MOOLE_CR_AWS_2",
+      "rule_file": "alb_listener_https.py",
+      "resource": "module.bad_alb_listener_https.aws_lb_listener.test",
+      "file": "modules/bad_alb_listener_https/main.tf",
+      "expected": "FAILED",
+      "reason": "HTTPS listeners and unconditional HTTPS redirects pass; HTTP forwarding fails.",
+      "found": true
+    },
+    {
+      "rule_id": "MOOLE_CR_AWS_204",
+      "rule_file": "ami_encryption.py",
+      "resource": "module.bad_ami_encryption.aws_ami.test",
+      "file": "modules/bad_ami_encryption/main.tf",
+      "expected": "FAILED",
+      "reason": "The AMI references a snapshot of known unencrypted storage.",
+      "found": true
+    },
+    {
+      "rule_id": "MOOLE_CR_AWS_205",
+      "rule_file": "ami_launch_is_shared.py",
+      "resource": "module.bad_ami_launch_is_shared.aws_ami_launch_permission.test",
+      "file": "modules/bad_ami_launch_is_shared/main.tf",
+      "expected": "FAILED",
+      "reason": "Public launch permission fails; a fixed account or organization is scoped.",
+      "found": true
+    },
+    {
+      "rule_id": "MOOLE_CR_AWS_217",
+      "rule_file": "api_gateway_deployment_create_before_destroy.py",
+      "resource": "module.bad_api_gateway_deployment_create_before_destroy.aws_api_gateway_deployment.test",
+      "file": "modules/bad_api_gateway_deployment_create_before_destroy/main.tf",
+      "expected": "FAILED",
+      "reason": "Explicit replacement order controls create before destroy.",
+      "found": true
+    },
+    {
+      "rule_id": "MOOLE_CR_AWS_206",
+      "rule_file": "api_gateway_domain_name_tls.py",
+      "resource": "module.bad_api_gateway_domain_name_tls.aws_api_gateway_domain_name.test",
+      "file": "modules/bad_api_gateway_domain_name_tls/main.tf",
+      "expected": "FAILED",
+      "reason": "security_policy is explicitly \"TLS_1_0\".",
+      "found": true
+    },
+    {
+      "rule_id": "MOOLE_CR_AWS_276",
+      "rule_file": "api_gateway_method_settings_data_trace.py",
+      "resource": "module.bad_api_gateway_method_settings_data_trace.aws_api_gateway_method_settings.test",
+      "file": "modules/bad_api_gateway_method_settings_data_trace/main.tf",
+      "expected": "FAILED",
+      "reason": "Explicit data tracing is evaluated independently of ordinary INFO execution logging.",
+      "found": true
+    },
+    {
+      "rule_id": "MOOLE_CR_AWS_193",
+      "rule_file": "app_sync_logging.py",
+      "resource": "module.bad_app_sync_logging.aws_appsync_graphql_api.test",
+      "file": "modules/bad_app_sync_logging/main.tf",
+      "expected": "FAILED",
+      "reason": "Logging configuration is required, but field-level logging is not separately required.",
+      "found": true
+    },
+    {
+      "rule_id": "MOOLE_CR_AWS_210",
+      "rule_file": "batch_job_is_not_privileged.py",
+      "resource": "module.bad_batch_job_is_not_privileged.aws_batch_job_definition.test",
+      "file": "modules/bad_batch_job_is_not_privileged/main.tf",
+      "expected": "FAILED",
+      "reason": "Privileged container mode fails; explicitly unprivileged containers pass.",
+      "found": true
+    },
+    {
+      "rule_id": "MOOLE_CR_AWS_174",
+      "rule_file": "cloudfront_tls_12.py",
+      "resource": "module.bad_cloudfront_tls_12.aws_cloudfront_distribution.test",
+      "file": "modules/bad_cloudfront_tls_12/main.tf",
+      "expected": "FAILED",
+      "reason": "Evaluate effective viewer TLS policy, including the default-certificate behavior.",
+      "found": true
+    },
+    {
+      "rule_id": "MOOLE_CR_AWS_220",
+      "rule_file": "cloudsearch_domain_enforce_https.py",
+      "resource": "module.bad_cloudsearch_domain_enforce_https.aws_cloudsearch_domain.test",
+      "file": "modules/bad_cloudsearch_domain_enforce_https/main.tf",
+      "expected": "FAILED",
+      "reason": "The endpoint setting explicitly selects the insecure or secure option.",
+      "found": true
+    },
+    {
+      "rule_id": "MOOLE_CR_AWS_218",
+      "rule_file": "cloudsearch_domain_tls.py",
+      "resource": "module.bad_cloudsearch_domain_tls.aws_cloudsearch_domain.test",
+      "file": "modules/bad_cloudsearch_domain_tls/main.tf",
+      "expected": "FAILED",
+      "reason": "The endpoint setting explicitly selects the insecure or secure option.",
+      "found": true
+    },
+    {
+      "rule_id": "MOOLE_CR_AWS_239",
+      "rule_file": "dax_endpoint_tls.py",
+      "resource": "module.bad_dax_endpoint_tls.aws_dax_cluster.test",
+      "file": "modules/bad_dax_endpoint_tls/main.tf",
+      "expected": "FAILED",
+      "reason": "cluster_endpoint_encryption_type is explicitly \"NONE\".",
+      "found": true
+    },
+    {
+      "rule_id": "MOOLE_CR_AWS_133",
+      "rule_file": "db_instance_backup_retention_period.py",
+      "resource": "module.bad_db_instance_backup_retention_period.aws_db_instance.test",
+      "file": "modules/bad_db_instance_backup_retention_period/main.tf",
+      "expected": "FAILED",
+      "reason": "backup_retention_period is explicitly 0.",
+      "found": true
+    },
+    {
+      "rule_id": "MOOLE_CR_AWS_104",
+      "rule_file": "doc_db_audit_logs.py",
+      "resource": "module.bad_doc_db_audit_logs.aws_docdb_cluster_parameter_group.test",
+      "file": "modules/bad_doc_db_audit_logs/main.tf",
+      "expected": "FAILED",
+      "reason": "Any recognized nonempty audit mode satisfies the curated audit recommendation.",
+      "found": true
+    },
+    {
+      "rule_id": "MOOLE_CR_AWS_106",
+      "rule_file": "ebs_default_encryption.py",
+      "resource": "module.bad_ebs_default_encryption.aws_ebs_encryption_by_default.test",
+      "file": "modules/bad_ebs_default_encryption/main.tf",
+      "expected": "FAILED",
+      "reason": "enabled is explicitly false.",
+      "found": true
+    },
+    {
+      "rule_id": "MOOLE_CR_AWS_223",
+      "rule_file": "ecs_cluster_logging_enabled.py",
+      "resource": "module.bad_ecs_cluster_logging_enabled.aws_ecs_cluster.test",
+      "file": "modules/bad_ecs_cluster_logging_enabled/main.tf",
+      "expected": "FAILED",
+      "reason": "A related service enables ECS Exec but the cluster selects NONE logging.",
+      "found": true
+    },
+    {
+      "rule_id": "MOOLE_CR_AWS_100",
+      "rule_file": "eks_node_group_remote_access.py",
+      "resource": "module.bad_eks_node_group_remote_access.aws_eks_node_group.test",
+      "file": "modules/bad_eks_node_group_remote_access/main.tf",
+      "expected": "FAILED",
+      "reason": "An SSH key without source groups causes implicit unrestricted SSH access.",
+      "found": true
+    },
+    {
+      "rule_id": "MOOLE_CR_AWS_228",
+      "rule_file": "elasticsearch_tls_policy.py",
+      "resource": "module.bad_elasticsearch_tls_policy.aws_elasticsearch_domain.test",
+      "file": "modules/bad_elasticsearch_tls_policy/main.tf",
+      "expected": "FAILED",
+      "reason": "The endpoint setting explicitly selects the insecure or secure option.",
+      "found": true
+    },
+    {
+      "rule_id": "MOOLE_CR_AWS_138",
+      "rule_file": "elb_cross_zone_enable.py",
+      "resource": "module.bad_elb_cross_zone_enable.aws_elb.test",
+      "file": "modules/bad_elb_cross_zone_enable/main.tf",
+      "expected": "FAILED",
+      "reason": "cross_zone_load_balancing is explicitly false.",
+      "found": true
+    },
+    {
+      "rule_id": "MOOLE_CR_AWS_213",
+      "rule_file": "elb_policy_uses_secure_protocols.py",
+      "resource": "module.bad_elb_policy_uses_secure_protocols.aws_load_balancer_policy.test",
+      "file": "modules/bad_elb_policy_uses_secure_protocols/main.tf",
+      "expected": "FAILED",
+      "reason": "The selected Classic ELB policy either permits old TLS or requires TLS 1.2.",
+      "found": false
+    },
+    {
+      "rule_id": "MOOLE_CR_AWS_114",
+      "rule_file": "emr_cluster_kerberos_attributes.py",
+      "resource": "module.bad_emr_cluster_kerberos_attributes.aws_emr_cluster.test",
+      "file": "modules/bad_emr_cluster_kerberos_attributes/main.tf",
+      "expected": "FAILED",
+      "reason": "Kerberos needs a nonblank realm; no Kerberos block is outside this recommendation.",
+      "found": true
+    },
+    {
+      "rule_id": "MOOLE_CR_AWS_167",
+      "rule_file": "glacier_vault_any_principal.py",
+      "resource": "module.bad_glacier_vault_any_principal.aws_glacier_vault.test",
+      "file": "modules/bad_glacier_vault_any_principal/main.tf",
+      "expected": "FAILED",
+      "reason": "Wildcard allow without a restricting condition is public.",
+      "found": true
+    },
+    {
+      "rule_id": "MOOLE_CR_AWS_238",
+      "rule_file": "guardduty_detector_enabled.py",
+      "resource": "module.bad_guardduty_detector_enabled.aws_guardduty_detector.test",
+      "file": "modules/bad_guardduty_detector_enabled/main.tf",
+      "expected": "FAILED",
+      "reason": "enable is explicitly false.",
+      "found": true
+    },
+    {
+      "rule_id": "MOOLE_CR_AWS_283",
+      "rule_file": "iam_public_actions_policy.py",
+      "resource": "module.bad_iam_public_actions_policy.data.aws_iam_policy_document.test",
+      "file": "modules/bad_iam_public_actions_policy/main.tf",
+      "expected": "FAILED",
+      "reason": "HTTPS is transport protection; it does not narrow a wildcard principal.",
+      "found": false
+    },
+    {
+      "rule_id": "MOOLE_CR_AWS_199",
+      "rule_file": "imagebuilder_distribution_configuration_encrypted.py",
+      "resource": "module.bad_imagebuilder_distribution_configuration_encrypted.aws_imagebuilder_distribution_configuration.test",
+      "file": "modules/bad_imagebuilder_distribution_configuration_encrypted/main.tf",
+      "expected": "FAILED",
+      "reason": "Source storage is unencrypted and destination regional encryption is explicitly disabled.",
+      "found": true
+    },
+    {
+      "rule_id": "MOOLE_CR_AWS_200",
+      "rule_file": "imagebuilder_image_recipe_ebs_encrypted.py",
+      "resource": "module.bad_imagebuilder_image_recipe_ebs_encrypted.aws_imagebuilder_image_recipe.test",
+      "file": "modules/bad_imagebuilder_image_recipe_ebs_encrypted/main.tf",
+      "expected": "FAILED",
+      "reason": "A new disk is unencrypted even though other inherited storage is encrypted.",
+      "found": true
+    },
+    {
+      "rule_id": "MOOLE_CR_AWS_116",
+      "rule_file": "lambda_dlq_configured.py",
+      "resource": "module.bad_lambda_dlq_configured.aws_lambda_function.test",
+      "file": "modules/bad_lambda_dlq_configured/main.tf",
+      "expected": "FAILED",
+      "reason": "An applicable asynchronous invocation needs a DLQ or an OnFailure destination.",
+      "found": true
+    },
+    {
+      "rule_id": "MOOLE_CR_AWS_258",
+      "rule_file": "lambda_function_url_auth.py",
+      "resource": "module.bad_lambda_function_url_auth.aws_lambda_function_url.test",
+      "file": "modules/bad_lambda_function_url_auth/main.tf",
+      "expected": "FAILED",
+      "reason": "authorization_type is explicitly \"NONE\".",
+      "found": true
+    },
+    {
+      "rule_id": "MOOLE_CR_AWS_197",
+      "rule_file": "mq_broker_audit_logging.py",
+      "resource": "module.bad_mq_broker_audit_logging.aws_mq_broker.test",
+      "file": "modules/bad_mq_broker_audit_logging/main.tf",
+      "expected": "FAILED",
+      "reason": "Audit logging is checked for ActiveMQ; RabbitMQ is outside this audit setting.",
+      "found": true
+    },
+    {
+      "rule_id": "MOOLE_CR_AWS_242",
+      "rule_file": "mwaa_scheduler_logs_enabled.py",
+      "resource": "module.bad_mwaa_scheduler_logs_enabled.aws_mwaa_environment.test",
+      "file": "modules/bad_mwaa_scheduler_logs_enabled/main.tf",
+      "expected": "FAILED",
+      "reason": "Evaluate the selected MWAA log type independently.",
+      "found": true
+    },
+    {
+      "rule_id": "MOOLE_CR_AWS_244",
+      "rule_file": "mwaa_webserver_logs_enabled.py",
+      "resource": "module.bad_mwaa_webserver_logs_enabled.aws_mwaa_environment.test",
+      "file": "modules/bad_mwaa_webserver_logs_enabled/main.tf",
+      "expected": "FAILED",
+      "reason": "Evaluate the selected MWAA log type independently.",
+      "found": true
+    },
+    {
+      "rule_id": "MOOLE_CR_AWS_243",
+      "rule_file": "mwaa_worker_logs_enabled.py",
+      "resource": "module.bad_mwaa_worker_logs_enabled.aws_mwaa_environment.test",
+      "file": "modules/bad_mwaa_worker_logs_enabled/main.tf",
+      "expected": "FAILED",
+      "reason": "Evaluate the selected MWAA log type independently.",
+      "found": true
+    },
+    {
+      "rule_id": "MOOLE_CR_AWS_102",
+      "rule_file": "neptune_cluster_instance_public.py",
+      "resource": "module.bad_neptune_cluster_instance_public.aws_neptune_cluster_instance.test",
+      "file": "modules/bad_neptune_cluster_instance_public/main.tf",
+      "expected": "FAILED",
+      "reason": "Curated logic combines the public flag with SG access to the database port.",
+      "found": true
+    },
+    {
+      "rule_id": "MOOLE_CR_AWS_101",
+      "rule_file": "neptune_cluster_logging.py",
+      "resource": "module.bad_neptune_cluster_logging.aws_neptune_cluster.test",
+      "file": "modules/bad_neptune_cluster_logging/main.tf",
+      "expected": "FAILED",
+      "reason": "Export configuration does not compensate for disabled audit generation.",
+      "found": true
+    },
+    {
+      "rule_id": "MOOLE_CR_AWS_230",
+      "rule_file": "network_acl_unrestricted_ingress_20.py",
+      "resource": "module.bad_network_acl_unrestricted_ingress_20.aws_network_acl.test",
+      "file": "modules/bad_network_acl_unrestricted_ingress_20/main.tf",
+      "expected": "FAILED",
+      "reason": "An earlier matching NACL deny takes precedence over a later allow.",
+      "found": true
+    },
+    {
+      "rule_id": "MOOLE_CR_AWS_229",
+      "rule_file": "network_acl_unrestricted_ingress_21.py",
+      "resource": "module.bad_network_acl_unrestricted_ingress_21.aws_network_acl.test",
+      "file": "modules/bad_network_acl_unrestricted_ingress_21/main.tf",
+      "expected": "FAILED",
+      "reason": "An earlier matching NACL deny takes precedence over a later allow.",
+      "found": true
+    },
+    {
+      "rule_id": "MOOLE_CR_AWS_232",
+      "rule_file": "network_acl_unrestricted_ingress_22.py",
+      "resource": "module.bad_network_acl_unrestricted_ingress_22.aws_network_acl.test",
+      "file": "modules/bad_network_acl_unrestricted_ingress_22/main.tf",
+      "expected": "FAILED",
+      "reason": "An earlier matching NACL deny takes precedence over a later allow.",
+      "found": true
+    },
+    {
+      "rule_id": "MOOLE_CR_AWS_231",
+      "rule_file": "network_acl_unrestricted_ingress_3389.py",
+      "resource": "module.bad_network_acl_unrestricted_ingress_3389.aws_network_acl.test",
+      "file": "modules/bad_network_acl_unrestricted_ingress_3389/main.tf",
+      "expected": "FAILED",
+      "reason": "An earlier matching NACL deny takes precedence over a later allow.",
+      "found": true
+    },
+    {
+      "rule_id": "MOOLE_CR_AWS_10",
+      "rule_file": "password_policy_length.py",
+      "resource": "module.bad_password_policy_length.aws_iam_account_password_policy.test",
+      "file": "modules/bad_password_policy_length/main.tf",
+      "expected": "FAILED",
+      "reason": "minimum_password_length is explicitly 7.",
+      "found": true
+    },
+    {
+      "rule_id": "MOOLE_CR_AWS_13",
+      "rule_file": "password_policy_reuse.py",
+      "resource": "module.bad_password_policy_reuse.aws_iam_account_password_policy.test",
+      "file": "modules/bad_password_policy_reuse/main.tf",
+      "expected": "FAILED",
+      "reason": "password_reuse_prevention is explicitly 11.",
+      "found": true
+    },
+    {
+      "rule_id": "MOOLE_CR_AWS_16",
+      "rule_file": "rds_encryption.py",
+      "resource": "module.bad_rds_encryption.aws_db_instance.test",
+      "file": "modules/bad_rds_encryption/main.tf",
+      "expected": "FAILED",
+      "reason": "storage_encrypted is explicitly false.",
+      "found": true
+    },
+    {
+      "rule_id": "MOOLE_CR_AWS_105",
+      "rule_file": "red_shift_ssl.py",
+      "resource": "module.bad_red_shift_ssl.aws_redshift_parameter_group.test",
+      "file": "modules/bad_red_shift_ssl/main.tf",
+      "expected": "FAILED",
+      "reason": "Explicit SSL false fails; the curated redshift-2.0 default passes.",
+      "found": true
+    },
+    {
+      "rule_id": "MOOLE_CR_AWS_122",
+      "rule_file": "sage_maker_internet_access_disabled.py",
+      "resource": "module.bad_sage_maker_internet_access_disabled.aws_sagemaker_notebook_instance.test",
+      "file": "modules/bad_sage_maker_internet_access_disabled/main.tf",
+      "expected": "FAILED",
+      "reason": "direct_internet_access is explicitly \"Enabled\".",
+      "found": true
+    },
+    {
+      "rule_id": "MOOLE_CR_AWS_230_FTP",
+      "rule_file": "security_group_unrestricted_ingress_20.py",
+      "resource": "module.bad_security_group_unrestricted_ingress_20.aws_security_group.test",
+      "file": "modules/bad_security_group_unrestricted_ingress_20/main.tf",
+      "expected": "FAILED",
+      "reason": "Evaluate unrestricted TCP ingress, including CIDRs whose union covers the Internet.",
+      "found": true
+    },
+    {
+      "rule_id": "MOOLE_CR_AWS_229_ActiveFTP",
+      "rule_file": "security_group_unrestricted_ingress_21.py",
+      "resource": "module.bad_security_group_unrestricted_ingress_21.aws_security_group.test",
+      "file": "modules/bad_security_group_unrestricted_ingress_21/main.tf",
+      "expected": "FAILED",
+      "reason": "Evaluate unrestricted TCP ingress, including CIDRs whose union covers the Internet.",
+      "found": true
+    },
+    {
+      "rule_id": "MOOLE_CR_AWS_24",
+      "rule_file": "security_group_unrestricted_ingress_22.py",
+      "resource": "module.bad_security_group_unrestricted_ingress_22.aws_security_group.test",
+      "file": "modules/bad_security_group_unrestricted_ingress_22/main.tf",
+      "expected": "FAILED",
+      "reason": "Evaluate unrestricted TCP ingress, including CIDRs whose union covers the Internet.",
+      "found": true
+    },
+    {
+      "rule_id": "MOOLE_CR_AWS_25",
+      "rule_file": "security_group_unrestricted_ingress_3389.py",
+      "resource": "module.bad_security_group_unrestricted_ingress_3389.aws_security_group.test",
+      "file": "modules/bad_security_group_unrestricted_ingress_3389/main.tf",
+      "expected": "FAILED",
+      "reason": "Evaluate unrestricted TCP ingress, including CIDRs whose union covers the Internet.",
+      "found": true
+    },
+    {
+      "rule_id": "MOOLE_CR_AWS_277",
+      "rule_file": "security_group_unrestricted_ingress_any.py",
+      "resource": "module.bad_security_group_unrestricted_ingress_any.aws_security_group.test",
+      "file": "modules/bad_security_group_unrestricted_ingress_any/main.tf",
+      "expected": "FAILED",
+      "reason": "The curated rule's declared scope includes all protocols or every TCP/UDP port; a single port is outside this check.",
+      "found": true
+    },
+    {
+      "rule_id": "MOOLE_CR_AWS_169",
+      "rule_file": "sns_topic_policy_any_principal.py",
+      "resource": "module.bad_sns_topic_policy_any_principal.aws_sns_topic.test",
+      "file": "modules/bad_sns_topic_policy_any_principal/main.tf",
+      "expected": "FAILED",
+      "reason": "Wildcard allow without a restricting condition is public.",
+      "found": true
+    },
+    {
+      "rule_id": "MOOLE_CR_AWS_168",
+      "rule_file": "sqs_queue_policy_any_principal.py",
+      "resource": "module.bad_sqs_queue_policy_any_principal.aws_sqs_queue.test",
+      "file": "modules/bad_sqs_queue_policy_any_principal/main.tf",
+      "expected": "FAILED",
+      "reason": "Wildcard allow without a restricting condition is public.",
+      "found": true
+    },
+    {
+      "rule_id": "MOOLE_CR_AWS_113",
+      "rule_file": "ssm_session_manager_document_logging.py",
+      "resource": "module.bad_ssm_session_manager_document_logging.aws_ssm_document.test",
+      "file": "modules/bad_ssm_session_manager_document_logging/main.tf",
+      "expected": "FAILED",
+      "reason": "A known log destination passes using service-default encryption; no destination fails.",
+      "found": true
+    },
+    {
+      "rule_id": "MOOLE_CR_AWS_130",
+      "rule_file": "subnet_public_ip.py",
+      "resource": "module.bad_subnet_public_ip.aws_subnet.test",
+      "file": "modules/bad_subnet_public_ip/main.tf",
+      "expected": "FAILED",
+      "reason": "map_public_ip_on_launch is explicitly true.",
+      "found": true
+    },
+    {
+      "rule_id": "MOOLE_CR_AWS_164",
+      "rule_file": "transfer_server_is_public.py",
+      "resource": "module.bad_transfer_server_is_public.aws_transfer_server.test",
+      "file": "modules/bad_transfer_server_is_public/main.tf",
+      "expected": "FAILED",
+      "reason": "An Internet-facing VPC endpoint allows unrestricted ingress on the transfer port.",
+      "found": false
+    },
+    {
+      "rule_id": "MOOLE_CR_AWS_123",
+      "rule_file": "vpc_endpoint_acceptance_configured.py",
+      "resource": "module.bad_vpc_endpoint_acceptance_configured.aws_vpc_endpoint_service.test",
+      "file": "modules/bad_vpc_endpoint_acceptance_configured/main.tf",
+      "expected": "FAILED",
+      "reason": "Automatic acceptance is acceptable only with explicitly scoped principals.",
+      "found": true
+    },
+    {
+      "rule_id": "MOOLE_CR_AWS_156",
+      "rule_file": "workspace_root_volume_encrypted.py",
+      "resource": "module.bad_workspace_root_volume_encrypted.aws_workspaces_workspace.test",
+      "file": "modules/bad_workspace_root_volume_encrypted/main.tf",
+      "expected": "FAILED",
+      "reason": "root_volume_encryption_enabled is explicitly false.",
+      "found": true
+    },
+    {
+      "rule_id": "MOOLE_CR_AWS_155",
+      "rule_file": "workspace_user_volume_encrypted.py",
+      "resource": "module.bad_workspace_user_volume_encrypted.aws_workspaces_workspace.test",
+      "file": "modules/bad_workspace_user_volume_encrypted/main.tf",
+      "expected": "FAILED",
+      "reason": "user_volume_encryption_enabled is explicitly false.",
+      "found": true
+    }
+  ],
+  "input_rule_sha256": {
+    "acm_cert_create_before_destroy.py": "9be5095109de8a6dc77cd3a0ba5d1909babaa7970d9be35a16c512640b941b8a",
+    "alb_drop_http_headers.py": "2f1f2904924dbba5da933ddebeb4f73d0ba5591c29e845e9b65bbd97f7f9c087",
+    "alb_listener_https.py": "1c6c3fedf0ab80d2302f9da18db387ce4181be62b55a81a09dcab85fb0d0539e",
+    "ami_encryption.py": "487db9af1f8387891517d5064b1f2d88f2467c25fe25e86b1c420c826779ef1b",
+    "ami_launch_is_shared.py": "5b93db480e390b9c4ab819a05c9454fd5f9038f6badad2d81f12acb45572dcc3",
+    "api_gateway_deployment_create_before_destroy.py": "466845bb781a378d2f740599efe90e3999970a666e27faa7c814c63239a8a1a9",
+    "api_gateway_domain_name_tls.py": "22cb130ac49d7c3c1cf2ed35b5a72ff96555cfd04d4545cc9e0ef1577e5d2f50",
+    "api_gateway_method_settings_data_trace.py": "2d0870cc492a00add10b048eb624786abdb4f1fa2e182809c5b74736a37efe02",
+    "app_sync_logging.py": "0a58b619c0d92ccdbe3ff4eaff677fe51fed3a52fd8063675302f595ca7461e8",
+    "batch_job_is_not_privileged.py": "3b7af720e7676944f0ec082a9dc5fd5020faea63a81d5d2ad5a38e9dc21c8a94",
+    "cloudfront_tls_12.py": "d91b736a664913652d3c5e7d7b592135545a938e1bd39f8a00c9fe911c4ed20f",
+    "cloudsearch_domain_enforce_https.py": "23d79222d099062e8bb4307e44f6daf9ea1ffe63b7fbb57050953472b55a6e50",
+    "cloudsearch_domain_tls.py": "17a7f82b1aa8931d35788163c2540e232c3bfaf1ca96ab982794f63d607f5897",
+    "dax_endpoint_tls.py": "7cd6e34bc680b0ebb85af79846264369ee9a9524bda3b261bc59a4a5f5d5e793",
+    "db_instance_backup_retention_period.py": "a8d35a15de95a7889342417957ba124ccaf340432c6c071d470e1ef60501b246",
+    "doc_db_audit_logs.py": "05494d7f38c99ace969967e270be53ae2aebaeefccc93af303e4f1b470267d72",
+    "ebs_default_encryption.py": "4b61b9208b5e41f6f15c0a315f392ba7ba7d85114bef87a9011ee805af998ba6",
+    "ecs_cluster_logging_enabled.py": "364a31fd847e0c7fe910fa76ec0c2a983c4e0814596fcf579aa30cfc1881e462",
+    "eks_node_group_remote_access.py": "3d1c32ea081a90e95b753cbd2f2d81c7995c74cd81e7a7ea8cb689b4a488b67f",
+    "elasticsearch_tls_policy.py": "ab5336fd92cc6726687e6a17561593ace3c3a700c5f3fd3b1e6ff4d6160c294c",
+    "elb_cross_zone_enable.py": "badbcd18b75f3ca7c3ae9923a390b5d7db090aa24985da4b9b07bb4df94ba32d",
+    "elb_policy_uses_secure_protocols.py": "9259d0967395cb32e0b8b081fc6101f11fdb95a2c49cedc65d46f020a7bb2b02",
+    "emr_cluster_kerberos_attributes.py": "4226662fa00a4162617a2fe167388b99a6e7bceeebd8b72fcc48da3d0bf6ad8a",
+    "glacier_vault_any_principal.py": "071517bffb0fbe78d512ac68c236029535af68bd8804b6676deaf270bfdb8633",
+    "guardduty_detector_enabled.py": "426482ff199ec51d7e6bcbf30d6a03050237e0051d855b4497ab91e786513f05",
+    "iam_public_actions_policy.py": "8364f5821df90d8e4b7e39f9ad806fdae9ded8220c0436dcc23cb7173d39f377",
+    "imagebuilder_distribution_configuration_encrypted.py": "31f56b95d49086c63cabfdc07dbe202cb02b514aa113c6b1b3f981bb12dc1cbc",
+    "imagebuilder_image_recipe_ebs_encrypted.py": "f7930504e242c2b0fed98e9a67a12a902aed88a47aab480974d68a41484a0850",
+    "lambda_dlq_configured.py": "fa47b9f7c83de7b8d682f9706b9b69839f68cb33089246d3de549a823d21c6c4",
+    "lambda_function_url_auth.py": "3f9c6e5c6e854eaecde3569e426ffd2dc388012671ff97d11584650b9956fe36",
+    "mq_broker_audit_logging.py": "176eef1710d1fac5a9340cc54c46909fca1047c4f0cc08a3f1d00af8aa1a416f",
+    "mwaa_scheduler_logs_enabled.py": "95c8a0367315dafcce79eb47fa68c23c67a40d918ce5a1fb367ad67220f0f7c9",
+    "mwaa_webserver_logs_enabled.py": "6db8f2fda1da889621c5234a2fa5d5d7bbcce6c23ac60b07d1624e10fbb0149f",
+    "mwaa_worker_logs_enabled.py": "42d7bca0adece44c9e26414ef9488366fa78165b88b43bc3300025f349a3d538",
+    "neptune_cluster_instance_public.py": "9490e392c32fd7338df049f7574d52a80736b82e3aee18f6a7ab792739184196",
+    "neptune_cluster_logging.py": "0e2f4c73db5b7bca90366b6ac659896669cd58a163af54dd9939aa3485dca002",
+    "network_acl_unrestricted_ingress_20.py": "1a2ddbddc424b594f2f15a5b8b6cecbf5ac27d4d22612251aa0a564f2069cd49",
+    "network_acl_unrestricted_ingress_21.py": "19a1c4347cd40efac3531aae29daa641fd61656d99b3cd05802490c46632a600",
+    "network_acl_unrestricted_ingress_22.py": "e2eb1230440a7ea7ee392f41260f4033f1eff040cd33fd326999c282a23fc49d",
+    "network_acl_unrestricted_ingress_3389.py": "51d6e83d2beae6eb43779d879f3eabfd876680e7190824a59b731e77d6578c3c",
+    "password_policy_length.py": "cf57b277ee8e1a032518bf3a5f259c1f78bd6a89cfc62bec35b414f10db4f6c6",
+    "password_policy_reuse.py": "2b8f04066c6f4c7374fc8decff004a37049a8ed29b6eb5c73ef6c04719ca5af9",
+    "rds_encryption.py": "eb2bd58015689215e91b55ad69245891bf7fc1319fe2643efbac8ea09c6edddf",
+    "red_shift_ssl.py": "84aa241e82cc160d4db878515a0f64186acfb168bae5a05f36a6f0954c9dd84c",
+    "sage_maker_internet_access_disabled.py": "5fe1c0f0f6a6dfe3041daf4895e160610eff7c437972ba1e1e030d7a37ac9efd",
+    "security_group_unrestricted_ingress_20.py": "16486a4049703bfa366b5b7200022e1d468b135797e6fe468f194ed0020c9e71",
+    "security_group_unrestricted_ingress_21.py": "0f2e1af787c4c1971e31bca6d6f54c827cd915fba26e06db108e0fdc7ff4cbd2",
+    "security_group_unrestricted_ingress_22.py": "cb83f35ada01273bc7a0ad326fb896e65bc32ab7518ea0853b5c76b0aa249ea3",
+    "security_group_unrestricted_ingress_3389.py": "e03e48f04a1bfdc6d3bc996ab9d7aba2488446e4fe91e2b5edbb6352cd9283d5",
+    "security_group_unrestricted_ingress_any.py": "67e2a1be7c77f26a8b087dfb21f8c1d4ffb15533a1a38b3b571dc68491dea460",
+    "sns_topic_policy_any_principal.py": "84ecef4f536ecdffd84f2eb30cc113b3c6f69c97bd4b9e593d456f3d17528351",
+    "sqs_queue_policy_any_principal.py": "435cee4ed61818e8af9224f11329d0436d275e4b4c4a002dc9842b1a167a88aa",
+    "ssm_session_manager_document_logging.py": "f427ed0945f47583d847e01d62b2b509f1ef6050fbabedc8fa56a48c6ad7041f",
+    "subnet_public_ip.py": "31458ecdb7b2254ba5e916527b0c13e0ec95c429501a6d6bf0de4ee09dc4601b",
+    "transfer_server_is_public.py": "64dd850954791d9444ef9ce13adceb85bae6b49f9bfaf8cac1ef869da53d5181",
+    "vpc_endpoint_acceptance_configured.py": "b890db30bcf03e0b35ac3ac0a46d4956876491ccbcd1031b1a81fb9e47a15505",
+    "workspace_root_volume_encrypted.py": "7a2b8b045511d1cc285802c6e78884258bb664e9c15daf0ceec9e08fd570d7d2",
+    "workspace_user_volume_encrypted.py": "7f6c2a06356407b7dcc9fb7bdd19cf3a36e9abf1c93c5deba4e9586f916b0f67",
+    "__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}
